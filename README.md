@@ -44,8 +44,10 @@ You may train a baseline model by following command:
 sh train.sh
 ```
 With the default settings. You may get results as follows:
+```
 PRW:  mAP:48.6%, top-1 86.7%
 CUHK-SYSU: mAP:86.7%, top-1 88.4%
+```
 You can edit the file `train.sh` with training settings you want.
 ## Citation
 If you find this repository useful for your research, please cite the paper:
