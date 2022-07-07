@@ -8,15 +8,15 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
 - sklearn 0.24.2
 
 ## Get Started
-1. Download this repository by running `git clone https://github.com/Niculuse/Learning-Robust-Graph-Embeddings-for-Person-Search.git` or clicking the button `clone or download`.
+1. Download this repository by running `git clone https://github.com/Niculuse/fast-person-search-baseline.git` or clicking the button `clone or download`.
 
 2. Prepare datasets
 
-    You may download the ReID datasets ([market1501](http://www.liangzheng.org/Project/project_reid.html), [DukeMTMC](https://github.com/layumi/DukeMTMC-reID_evaluation#download-dataset), [CUHK03-NP](https://github.com/zhunzhong07/person-re-ranking)) first, and then prepare the datasets via following commands:
+    You may download the person search datasets ([PRW]https://github.com/liangzheng06/PRW-baseline) and [CUHK-SYSU](https://github.com/ShuangLI59/person_search) first, and then prepare the datasets via following commands:
     
     ```bash
-    cd Learning-Robust-Graph-Embeddings-for-Person-Search-master
-    mkdir datasets
+    cd fast-person-search-baseline
+    mkdir data
     ```
     
     (1) Market1501 and DukeMTMC
