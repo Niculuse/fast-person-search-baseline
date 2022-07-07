@@ -43,5 +43,17 @@ sh train.sh
 ```
 You can edit the file `train.sh` with training settings you want.
 ## Citation
-Liu C, Yang H, Zhou Q, et al. Making person search enjoy the merits of person re-identification[J]. Pattern Recognition, 2022, 127: 108654.
+If you find this repository useful for your research, please cite the paper:
+
+```
+@article{liu2022making,
+  title={Making person search enjoy the merits of person re-identification},
+  author={Liu, Chuang and Yang, Hua and Zhou, Qin and Zheng, Shibao},
+  journal={Pattern Recognition},
+  volume={127},
+  pages={108654},
+  year={2022},
+  publisher={Elsevier}
+}
+```
 
