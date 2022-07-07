@@ -6,7 +6,9 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
 - torchvision 0.11.2
 - tqdm 4.15.0
 - sklearn 0.24.2
-
+## Features
+- AMP training
+- Large batch size
 ## Get Started
 1. Download this repository by running `git clone https://github.com/Niculuse/fast-person-search-baseline.git` or clicking the button `clone or download`.
 
