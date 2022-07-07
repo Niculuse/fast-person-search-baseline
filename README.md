@@ -12,7 +12,7 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
 
 2. Prepare datasets
 
-    You may download the person search datasets ([PRW]https://github.com/liangzheng06/PRW-baseline) and [CUHK-SYSU](https://github.com/ShuangLI59/person_search) first, and then prepare the datasets via following commands:
+    You may download the person search datasets [PRW](https://github.com/liangzheng06/PRW-baseline) and [CUHK-SYSU](https://github.com/ShuangLI59/person_search) first, and then prepare the datasets via following commands:
     
     ```bash
     cd fast-person-search-baseline
@@ -21,37 +21,21 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
     
     (1) Market1501 and DukeMTMC
     
-    * Extract the datasets and rename them to `market1501` and `dukemtmc`, respectively.
-    * Copy the folder `market1501` and `dukemtmc` to the folder `datasets`. The data structure should be like:
+    * Extract the datasets and rename them to `prw` and `sysu`, respectively.
+    * Copy the folder `prw` and `sysu` to the folder `data`. The data structure should be like:
     
     ```bash
-    datasets
-        market1501
-            bounding_box_test/
-            bounding_box_train/
+    data
+        prw
+            frames/
+            annotations/
             ......
-        dukemtmc
-            bounding_box_test/
-            bounding_box_train/
+        sysu
+            frames/
+            annotation/
             ...... 
     ```
-    (2) CUHK03-NP
-    
-    * Extract the dataset and rename it to `cuhk03-np`. 
-    * Move the folder `cuhk03-np` to the folder `datasets`. The data structure should be like:
-    
-    ```bash
-    datasets
-        market1501/
-        dukemtmc/
-        cuhk03-np
-            detected
-                bounding_box_test/
-                bounding_box_train/
-            labeled
-                bounding_box_test/
-                bounding_box_train/
-    ```
+   
 ## Train Baseline CNN Model
 You may train a baseline cnn model by following command:
 ```bash
