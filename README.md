@@ -1,5 +1,5 @@
 # fast-person-search-baseline
-Re-implement of the baseline of paper "Making person search enjoy the merits of person re-identification".
+Re-implement of the baseline of paper "Making person search enjoy the merits of person re-identification". Please note that the training settings are different from the paper!
 ## Prerequisites
 - Python 3.9.7
 - Pytorch 1.10
@@ -10,6 +10,7 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
 ## Features
 - AMP training
 - Large batch size
+- Multi-gpu training
 ## Get Started
 1. Download this repository by running `git clone https://github.com/Niculuse/fast-person-search-baseline.git` or clicking the button `clone or download`.
 
@@ -52,18 +53,3 @@ PRW:  mAP:48.6%, top-1 86.7%
 CUHK-SYSU: mAP:86.7%, top-1 88.4%
 ```
 You can edit the file `train.sh` with training settings you want.
-## Citation
-If you find this repository useful for your research, please cite the paper:
-
-```
-@article{liu2022making,
-  title={Making person search enjoy the merits of person re-identification},
-  author={Liu, Chuang and Yang, Hua and Zhou, Qin and Zheng, Shibao},
-  journal={Pattern Recognition},
-  volume={127},
-  pages={108654},
-  year={2022},
-  publisher={Elsevier}
-}
-```
-
