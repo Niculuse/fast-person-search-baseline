@@ -18,7 +18,7 @@ class person_search_dataset(Dataset):
         self.split = split
         self.dataset_name = dataset_name
         self.transform = transform
-        self.image_dir = os.path.join(self.root_dir, 'frames')
+        self.image_dir = os.path.join(self.root_dir, 'frames' if dataset_name=='prw' else 'Image/SSM')
         self.anno_dir = os.path.join(self.root_dir, 'processed_annotations')
         self.imnames_file = '{}ImnamesSe.csv'.format(self.split)
 
@@ -30,7 +30,7 @@ class person_search_dataset(Dataset):
 
         self.imnames = pd.read_csv(os.path.join(
             self.anno_dir, self.imnames_file), header=None, squeeze=True)
-        new_format_data = os.path.join(self.root_dir, '{}_data.torch'.format(self.split))
+        new_format_data = os.path.join(self.anno_dir, '{}_data.torch'.format(self.split))
         if os.path.exists(new_format_data):
             self.data = torch.load(new_format_data)
         else:
@@ -129,7 +129,7 @@ class query_dataset(Dataset):
         self.root_dir = root_dir
         self.dataset_name = dataset_name
         self.transform = transform
-        self.image_dir = os.path.join(self.root_dir, 'frames')
+        self.image_dir = os.path.join(self.root_dir, 'frames' if dataset_name=='prw' else 'Image/SSM')
         query_file_dir = os.path.join(self.root_dir, 'processed_annotations', 'queryDF.csv')
         self.query_file = pd.read_csv(query_file_dir)
         self.query_id = self.query_file.loc[:, 'pid'].tolist()

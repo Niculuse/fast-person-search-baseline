@@ -226,58 +226,6 @@ def produce_query_set(root_dir, save_dir):
     query_boxes_df.to_csv(os.path.join(save_dir, 'queryDF.csv'), index=False)
 
 
-def produce_query_gallery(save_dir):
-    """
-    Produce several DataFrames to save reflects from queries to galleries,
-    image names of queries are used as indices
-    """
-
-    test_boxes_df = pd.read_csv(os.path.join(save_dir, 'testAllDF.csv'))
-    query_boxes_df = pd.read_csv(os.path.join(save_dir, 'queryDF.csv'))
-    test_imnames = pd.read_csv(os.path.join(save_dir, 'testImnamesSe.csv'),
-                               header=None, squeeze=True)
-    test_ids = list(set(test_boxes_df['pid']) - {-1})
-
-    # Count how many images that contain the specific ID
-    id_appearence = {}
-    for id_num in test_ids:
-        num_boxes = test_boxes_df[test_boxes_df['pid'] == id_num].shape[0]
-        id_appearence[id_num] = num_boxes
-
-    # get gallery sizes
-    chosen_sizes = [50, 100, 200, 500, 700, 1000, 1500, 2000, 4000]
-    gallery_sizes = [size for size in chosen_sizes
-                     if size > max(id_appearence.values())]
-
-    for size in gallery_sizes:
-        print('Producing gallery with size {}...'.format(size))
-        queries_to_galleries = [[] for _ in range(query_boxes_df.shape[0])]
-        for i in range(query_boxes_df.shape[0]):
-            q_name = query_boxes_df.iloc[i]['imname']
-            q_camera = q_name[1]
-            pid = query_boxes_df.iloc[i]['pid']
-            df = test_boxes_df[test_boxes_df['pid'] == pid]
-
-            # gt_gallery refers to those images that contain the `pid` person
-            gt_gallery = list(set(df['imname']))
-            gt_gallery.remove(q_name)
-            for gt_im in gt_gallery:
-                # Only pick out images under different cameras with query
-                if gt_im[1] != q_camera:
-                    queries_to_galleries[i].append(gt_im)
-
-            # Add other images that don't contain the `pid` person to fill
-            candidates = list(set(test_imnames) - set(df['imname']))
-            num_to_fill = size - len(queries_to_galleries[i])
-            chosen_ones = random.sample(candidates, num_to_fill)
-            queries_to_galleries[i].extend(chosen_ones)
-
-        queries_to_galleries = pd.DataFrame(queries_to_galleries,
-                                            index=query_boxes_df['imname'])
-        queries_to_galleries.to_csv(os.path.join(
-            save_dir, 'q_to_g{}DF.csv'.format(size)))
-
-
 def preprocess(root_dir):
     save_dir = os.path.join(root_dir, 'processed_annotations')
 
