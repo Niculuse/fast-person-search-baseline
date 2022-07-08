@@ -1,5 +1,5 @@
 # fast-person-search-baseline
-Re-implement of the baseline of paper "Making person search enjoy the merits of person re-identification". Please note that the training settings are different from the paper, and our result is better than the paper.
+A fast and strong person search baseline!
 ## Prerequisites
 - Python 3.9.7
 - Pytorch 1.10
