@@ -44,6 +44,7 @@ You may train a baseline model by following command:
 ```bash
 sh train.sh
 ```
+Before starting multi-gpu training, you should run the script with only one gpu to preprocess the datasets!
 With the default settings. You may get results as follows:
 ```
 PRW:  mAP:48.6%, top-1 86.7%
