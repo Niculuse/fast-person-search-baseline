@@ -5,7 +5,8 @@ Re-implement of the baseline of paper "Making person search enjoy the merits of 
 - Pytorch 1.10
 - torchvision 0.11.2
 - tqdm 4.15.0
-- sklearn 0.24.2
+- scikit-learn 1.0.1
+- pandas 1.4.2
 ## Features
 - AMP training
 - Large batch size
